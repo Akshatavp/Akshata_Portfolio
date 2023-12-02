@@ -484,9 +484,11 @@ span {
 
 .projects-container {
     display: grid;
+    gap: 5rem;
+    justify-content: space-evenly;
+    align-items: stretch;
+    align-content: stretch;
     grid-template-columns: repeat(2, 0fr);
-    align-items: center;
-    gap: 20rem;
 }
 
 .projects-container .projects-box {
@@ -892,18 +894,15 @@ span {
     }
 
     .projects-container {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(1, 0fr);
+
     }
 
 
 
 }
 
-@media (max-width: 617px) {
-    .projects-container {
-        grid-template-columns: 1fr;
-    }
-}
+
 
 @media (max-width: 462px) {
     .home-content h1 {
