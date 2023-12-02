@@ -484,9 +484,9 @@ span {
 
 .projects-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 0fr);
     align-items: center;
-    gap: 9rem;
+    gap: 20rem;
 }
 
 .projects-container .projects-box {
@@ -496,6 +496,11 @@ span {
     overflow: hidden;
     display: flex;
 
+}
+
+.projects-box {
+    width: 30vw;
+    height: 60rem;
 }
 
 .projects-box img {
