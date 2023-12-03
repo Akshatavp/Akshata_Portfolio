@@ -864,6 +864,11 @@ span {
         font-size: 2.6rem;
     }
 
+    .home-content .lastname {
+        display: none;
+
+    }
+
     .home-content h1 {
         font-size: 3rem;
     }
@@ -898,7 +903,10 @@ span {
 
     }
 
-
+    .projects-box {
+        width: 60vw;
+        height: 80vw;
+    }
 
 }
 
@@ -924,6 +932,13 @@ span {
     .footer P {
         margin-top: 2rem;
     }
+
+
+    .projects-box {
+        width: 60vw;
+        height: 80vw;
+
+    }
 }
 
 @media (max-width: 450px) {
@@ -933,6 +948,11 @@ span {
 
     .contact form .input-box input {
         width: 100%;
+    }
+
+    .projects-box {
+        width: 60vw;
+        height: 80vw;
     }
 }
 
@@ -949,4 +969,9 @@ span {
         margin-top: 2rem;
     }
 
+    .projects-box {
+        width: 60vw;
+        height: 80vw;
+
+    }
 }
