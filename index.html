@@ -166,7 +166,7 @@
 
             </div>
 
-            <div class="education-coloumn">
+            <div class="education-coloumn" method="POST">
                 <h3 class="title">Education</h3>
                 <div class="education-box">
                     <div class="education-content">
@@ -198,17 +198,15 @@
     <section class="contact" id="contact">
         <h2 class="heading">Contact <span>Me!</span></h2>
 
-        <form action="https://formsubmit.co/patilakshata.2518@gmail.com" method="POST">
+        <form id="Contact-form">
             <div class="input-box">
-                <input type="text" name="Name" placeholder="Full Name" required>
-                <input type="email" name="Email" placeholder="Email Address" required>
+                <input id="name" type="text" name="name" placeholder="Full Name" required>
+                <input id="email" type="email" name="email" placeholder="Email Address" required>
             </div>
-            <div class="input-box">
-                <input type="number" name="Number" placeholder="Mobile Number" required>
-                <input type="text" name="Text" placeholder="Email Subject">
-            </div>
-            <textarea name="Message" id="" cols="30" rows="10" placeholder="Your Message" required></textarea>
-            <input type="submit" value="Send Message" class="btn">
+
+            <textarea name="message" cols="30" rows="10" placeholder="Your Message" required name="message"></textarea>
+
+            <input type="submit" class="btn">
         </form>
     </section>
 
@@ -221,6 +219,40 @@
         </div>
     </footer>
     <script src="script.js"></script>
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <script>
+        const { createClient } = supabase
+        supabase = createClient('https://ujqmhnkkzzbednkqxuey.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVqcW1obmtrenpiZWRua3F4dWV5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDQzMDAyNTgsImV4cCI6MjAxOTg3NjI1OH0.cIdmNqSbG6hqwweTcpGrWx3VyOGnxyBqtEfV7xFysWQ')
+
+        //Form 
+
+
+        const form = document.getElementById('Contact-form');
+
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const formInputs = form.querySelectorAll('input,textarea')
+
+            let submission = {}
+            formInputs.forEach(element => {
+                const { value, name } = element
+                if (value) {
+                    submission[name] = value
+                }
+            })
+            const { error, data } = await supabase.from('Contactform').insert([submission])
+            console.log({ error, data })
+            formInputs.forEach(input => input.value = '')
+
+            alert("Thank you for your response!", 3000);
+
+
+        });
+
+
+
+    </script>
 </body>
 
 </html>
