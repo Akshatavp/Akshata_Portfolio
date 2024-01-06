@@ -43,9 +43,10 @@
                 <span class="animate" style="--i:3;"></span>
             </div>
 
-            <p>I craft innovative and responsive web solutions and merge technical expertise with creativity to bring
-                ideas to life.Eager to contribute my skills and drive for innovation to propel
-                businesses forward in the ever-evolving digital landscape. <span class="animate" style="--i:4;"></span>
+            <p>I craft innovative and responsive web solutions, merging technical expertise with creativity to bring
+                ideas to life using JavaScript, HTML, and CSS, I am a beginner in frameworks, eager to contribute my
+                skills and drive for innovation to propel businesses forward in the ever-evolving digital landscape<span
+                    class="animate" style="--i:4;"></span>
             </p>
             <div class="btn-box">
                 <a href="ResumeIn1.pdf" class="btn" target="_blank" rel="noopener noreferrer">Resume</a>
@@ -106,6 +107,20 @@
                     </p>
                     <a href="https://github.com/Akshatavp/Tictactoe" target="_blank"><i class='bx bxl-github'></i></a>
                     <a href="https://tictactoe-umber-iota.vercel.app/" target="_blank"><i
+                            class='bx bx-link-external'></i></a>
+                </div>
+            </div>
+
+
+            <div class="projects-box">
+                <img src="Images/TodoApp.png" alt="">
+                <div class="projects-layer">
+                    <h4>Todo App</h4>
+                    <p>Efficient to-do app crafted with JavaScript, HTML,CSS, and React featuring seamless task
+                        addition, deletion, and the ability to mark items as completed for streamlined task management
+                    </p>
+                    <a href="https://github.com/Akshatavp/Todo_App" target="_blank"><i class='bx bxl-github'></i></a>
+                    <a href="https://todo-app-flame-nu.vercel.app/" target="_blank"><i
                             class='bx bx-link-external'></i></a>
                 </div>
             </div>
@@ -206,7 +221,7 @@
 
             <textarea name="message" cols="30" rows="10" placeholder="Your Message" required name="message"></textarea>
 
-            <input type="submit" class="btn">
+            <input type="submit" class="btn" value="Send Message" id="sbtn">
         </form>
     </section>
 
@@ -228,6 +243,7 @@
 
 
         const form = document.getElementById('Contact-form');
+        const subbtn = document.getElementById('sbtn')
 
         form.addEventListener('submit', async (event) => {
             event.preventDefault();
@@ -241,11 +257,15 @@
                     submission[name] = value
                 }
             })
-            const { error, data } = await supabase.from('Contactform').insert([submission])
-            console.log({ error, data })
-            formInputs.forEach(input => input.value = '')
 
-            alert("Thank you for your response!", 3000);
+
+            const { error, data } = await supabase.from('Contactform').insert([submission])
+            console.log({ error })
+            formInputs.forEach(input => input.value = '')
+            alert("Thank you for your response!");
+            subbtn.style.display = "none"
+
+
 
 
         });

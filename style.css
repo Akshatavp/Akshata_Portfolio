@@ -175,7 +175,7 @@ section {
 
 
 .home-content .text-animate h3 {
-    font-size: 3.2rem;
+    font-size: 4.2rem;
     font-weight: 700;
     color: transparent;
     text-align: center;
@@ -803,6 +803,9 @@ span {
         padding-bottom: 7rem;
     }
 
+    .home-sci {
+        display: none;
+    }
 
     .contact {
         min-height: auto;
